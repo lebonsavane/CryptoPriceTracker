@@ -17,7 +17,7 @@ Crypto Price Tracker is a cryptocurrency price tracking application that allows 
 
 ```bash
 git clone https://github.com/your-username/crypto-price-tracker.git
-
+```
 2. Navigate to the project directory:
 ```bash
 cd crypto-price-tracker
