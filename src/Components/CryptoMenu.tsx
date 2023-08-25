@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography, Chip } from "@mui/material";
 import { Crypto } from "../types";
 
@@ -13,6 +13,23 @@ const CryptoMenu: React.FC<CryptoMenuProps> = ({
   selectedCryptos,
   onSelectCrypto,
 }) => {
+  useEffect(() => {
+    // Récupérez les choix de l'utilisateur depuis le localStorage au chargement
+    const storedSelectedCryptos = localStorage.getItem("selectedCryptos");
+    if (storedSelectedCryptos) {
+      const selected = JSON.parse(storedSelectedCryptos);
+      onSelectCrypto(selected); // Mettez à jour les choix
+    }
+  }, []); // Assurez-vous que cela s'exécute uniquement au chargement initial
+
+  const handleCryptoSelection = (cryptoId: string) => {
+    // Mettez à jour l'état local
+    onSelectCrypto(cryptoId);
+
+    // Enregistrez l'état dans le localStorage
+    localStorage.setItem("selectedCryptos", JSON.stringify(selectedCryptos));
+  };
+
   return (
     <Box p={2} display="flex" flexDirection="column" alignItems="center">
       <Typography variant="h6" color="textSecondary" mb={2}>
@@ -27,7 +44,7 @@ const CryptoMenu: React.FC<CryptoMenuProps> = ({
             variant={
               selectedCryptos.includes(crypto.id) ? "filled" : "outlined"
             }
-            onClick={() => onSelectCrypto(crypto.id)}
+            onClick={() => handleCryptoSelection(crypto.id)}
             style={{ margin: "4px" }}
           />
         ))}

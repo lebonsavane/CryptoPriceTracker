@@ -18,7 +18,13 @@ const Home = () => {
       .then((data: Crypto[]) => {
         setCryptos(data);
         setAvailableCryptos(data);
-        setSelectedCryptos(data.map((crypto: Crypto) => crypto.id)); // Sélectionnez toutes les cryptos par défaut
+        const storedSelectedCryptos = localStorage.getItem("selectedCryptos");
+        if (storedSelectedCryptos) {
+          const selected = JSON.parse(storedSelectedCryptos);
+          setSelectedCryptos(selected);
+        } else {
+          setSelectedCryptos(data.map((crypto: Crypto) => crypto.id)); // Sélectionnez toutes les cryptos par défaut
+        }
       })
       .catch((error: Error) => console.error(error));
   }, []);
