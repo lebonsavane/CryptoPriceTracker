@@ -21,15 +21,15 @@ git clone https://github.com/your-username/crypto-price-tracker.git
 2. Navigate to the project directory:
 ```bash
 cd crypto-price-tracker
-
+```
 3. Install project dependencies using npm:
 ```bash
 npm install
-
+```
 4. Start the application in development mode:
 ```bash
 npm start
-
+```
 The application will be available at http://localhost:3000.
 
 ## Installation
