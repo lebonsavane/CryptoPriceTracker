@@ -1,0 +1,24 @@
+.welcome-heading {
+    color: #ffffff; 
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-description {
+    color: #5e6e7d; /* Utilisez la variable de couleur primaire */
+  }
+  
+  .welcome-page {
+    text-align: center; /* Centrez le contenu horizontalement */
+  }
+  
+  /* Classe pour l'animation d'écriture progressive */
+  .welcome-page .discover-text {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Animation de transition */
+  }
+  
+  .welcome-page .discover-text.visible {
+    opacity: 1; /* Lorsque la classe "visible" est ajoutée, l'élément devient visible */
+  }
+  
